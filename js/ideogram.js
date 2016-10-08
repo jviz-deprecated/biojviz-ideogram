@@ -15,7 +15,7 @@ jviz.modules.ideogram = function(opt)
   this._id = (typeof opt.id === 'undefined') ? jviz.utils.getID({ prefix: 'ideogram', length: 5 }) : opt.id;
 
   //Save the ideogram class
-  this._class = (typeof opt.class === 'undefined') ? 'jviz-modules-editable-list' : opt.class;
+  this._class = (typeof opt.class === 'undefined') ? 'jviz-modules-ideogram' : opt.class;
 
   //Parent element
   this._parent = opt.parent;
