@@ -1,0 +1,28 @@
+<!-- Style sheets -->
+<link rel="stylesheet" type="text/css" href="./build/font.css">
+<link rel="stylesheet" type="text/css" href="./build/jviz.css">
+<link rel="stylesheet" type="text/css" href="./build/jviz-default.css">
+<link rel="stylesheet" type="text/css" href="./build/ideogram.css">
+<!-- JavaScript -->
+<script type="text/javascript" src="./build/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="./build/jviz.js"></script>
+<script type="text/javascript" src="./build/ideogram.js"></script>
+<!-- Styles -->
+<style>body { padding: 50px !important; } </style>
+<!-- Main script -->
+<script type="text/javascript">
+  //Ideogram element
+  var el = null;
+
+  //Document ready function
+  $(document).ready(function()
+  {
+    //Table options
+    var opt = { parent: 'test', id: 'myIdeogram' };
+
+    //Initialize the table
+    t = new jviz.modules.ideogram(opt);
+  });
+</script>
+<!-- Test div -->
+<div id="test"></div>
