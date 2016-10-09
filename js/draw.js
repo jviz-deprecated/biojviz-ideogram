@@ -14,7 +14,7 @@ jviz.modules.ideogram.prototype.draw = function(chr)
   this._chromosome.now = chr;
 
   //Check the chromosome to draw
-  (chr === -1) ? this.drawKaryotypes() : this.drawChromosome();
+  (chr === -1) ? this.previewDraw() : this.chromosomeDraw();
 
   //Return this
   return this;
