@@ -84,7 +84,7 @@ jviz.modules.ideogram = function(opt)
 
   //Preview text
   this._preview.text = {};
-  this._preview.text.font = 'Asap bold'; //Text font
+  this._preview.text.font = 'Asap'; //Text font
   this._preview.text.size = '11px'; //Text size
   this._preview.text.color = jviz.colors.blue2.hex; //Chromosomes text color
   this._preview.text.align = 'center'; //Chromosomes text align
@@ -202,7 +202,7 @@ jviz.modules.ideogram = function(opt)
   this._marks.text.x = 0; //Marks text position x
   this._marks.text.y = 0; //Marks text position y
   this._marks.text.text = ''; //Marks text text
-  this._marks.text.font = 'Asap-Bold'; //Marks text font
+  this._marks.text.font = 'Asap'; //Marks text font
   this._marks.text.size = '12px'; //Marks text size
   this._marks.text.color = '#ffffff'; //Marks text color
   this._marks.text.align = 'center'; //Marks text align
