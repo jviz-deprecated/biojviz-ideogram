@@ -70,36 +70,33 @@ jviz.modules.ideogram = function(opt)
   this._fill.centromere.color = jviz.colors.blue2.hex; //Centromere fill color
   this._fill.centromere.opacity = 0.8; //Centromere fill opacity
 
-  //Karyotypes
-  this._karyotypes = {};
-  this._karyotypes.width = 15; //Karyotypes width
-  this._karyotypes.height = 0; //Karyotypes height
-  this._karyotypes.list = []; //Karyotypes list
-  this._karyotypes.margin = 0; //Margin between the chromosomes
-  this._karyotypes.radius = 6; //Karyotypes radius
-  this._karyotypes.max = 0; //Karyotypes max size
-  this._karyotypes.positions = []; //Karyotypes positions
+  //Preview view
+  this._preview = {};
+  this._preview.positions = []; //Preview positions
+  this._preview.margin = 0; //Preview margin
+  this._preview.max = 0; //Preview max chromosome size
 
-  //Karyotypes stroke
-  this._karyotypes.stroke = {};
-  this._karyotypes.stroke.width = 1; //Karyotypes stroke width
-  this._karyotypes.stroke.color = '#'; //Karyotypes stroke color
+  //Preview chromosomes
+  this._preview.chromosome = {};
+  this._preview.chromosome.width = 15; //Preview chromosome width
+  this._preview.chromosome.height = 0; //Preview chromosome height
+  this._preview.chromosome.radius = 6; //Preview chromosome radius
 
-  //Karyotypes text
-  this._karyotypes.text = {};
-  this._karyotypes.text.font = 'Asap-Bold'; //Karyotypes Text font
-  this._karyotypes.text.size = '11px'; //Karyotypes text size
-  this._karyotypes.text.color = jviz.colors.blue2.hex; //Karyotypes text color
-  this._karyotypes.text.align = 'center'; //Karyotypes text align
-  this._karyotypes.text.margin = 5; //Karyotypes text margin top
+  //Preview text
+  this._preview.text = {};
+  this._preview.text.font = 'Asap bold'; //Text font
+  this._preview.text.size = '11px'; //Text size
+  this._preview.text.color = jviz.colors.blue2.hex; //Chromosomes text color
+  this._preview.text.align = 'center'; //Chromosomes text align
+  this._preview.text.margin = 5; //KChromosomes text margin top
 
-  //Karyotypes hover
-  this._karyotypes.hover = {};
-  this._karyotypes.hover.hover = -1; //Hover karyotype index
-  this._karyotypes.hover.margin = { top: 10, bottom: 20, left: 10, right: 10 }; //Hover margin
-  this._karyotypes.hover.color = jviz.colors.white.hex; //Hover background color
-  this._karyotypes.hover.opacity = 1.0; //Hover background color opacity
-  this._karyotypes.hover.radius = 10; //Hover radius
+  //Preview chromosomes hover
+  this._preview.hover = {};
+  this._preview.hover.index = -1; //Hover chromosome index
+  this._preview.hover.margin = { top: 10, bottom: 20, left: 10, right: 10 }; //Hover margin
+  this._preview.hover.color = jviz.colors.white.hex; //Hover background color
+  this._preview.hover.opacity = 1.0; //Hover background color opacity
+  this._preview.hover.radius = 10; //Hover radius
 
   //Chromosome
   this._chromosome = {};
@@ -209,6 +206,9 @@ jviz.modules.ideogram = function(opt)
   this._marks.text.size = '12px'; //Marks text size
   this._marks.text.color = '#ffffff'; //Marks text color
   this._marks.text.align = 'center'; //Marks text align
+
+  //Add the events
+  this.events();
 
   //Check the genomes
   if(typeof opt.genome === 'object'){ this.genome(opt.genome); }
