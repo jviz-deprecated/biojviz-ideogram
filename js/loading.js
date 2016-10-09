@@ -13,3 +13,12 @@ jviz.modules.ideogram.prototype.loading = function(value)
   //Return this
   return this;
 };
+
+//Show loading
+jviz.modules.ideogram.prototype.showLoading = function(){ return this.loading(true); };
+
+//Hide loading
+jviz.modules.ideogram.prototype.hideLoading = function(){ return this.loading(false); };
+
+//Check if is loading
+jviz.modules.ideogram.prototype.isLoading = function(){ return this._loading; };
