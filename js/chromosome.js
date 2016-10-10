@@ -167,7 +167,7 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
     region.marks = marks_count;
 
     //Save the region position
-    this_.chromosome.regions.list.push(region);
+    this._chromosome.regions.list.push(region);
 
     //Check for add the preview label
     if(this._chromosome.regions.preview.active === true)
