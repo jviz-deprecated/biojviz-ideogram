@@ -32,6 +32,9 @@
 
     //Initialize the table
     el = new jviz.modules.ideogram(opt);
+
+    //Add the click chromosome event
+    el.on('click:chromosome', function(name, index){ console.log('Open chromosome ' + name); });
   });
 </script>
 <!-- Test div -->
