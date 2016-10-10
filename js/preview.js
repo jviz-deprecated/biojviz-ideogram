@@ -161,7 +161,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
       var re_end = draw.height * (re.end / this._preview.max);
 
       //Region width
-      var re_width = this._preview.chromsome.width;
+      var re_width = this._preview.chromosome.width;
 
       //Region height
       var re_height = Math.max(Math.abs(re_end - re_start), 1);
