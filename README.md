@@ -12,6 +12,10 @@ jviz install ideogram
 
 ## Reference
 
+- [Options](#options): a compilation with all the options that you can provide to the **ideogram** constructor.
+- [API](#api): all the commands to manipulate the ideogram.
+- [Events](#events): the ideogram module emits events when the user interacts with the tool. Here we present all the events available.
+
 ### Options
 
 ### API
@@ -20,6 +24,8 @@ jviz install ideogram
 
 Open the provided chromosome. The `index` argument must be a string with the chromosome name.
 
+### Events
+
 ## License
 
-Under the [MIT LICENSE](./LICENSE). &copy; The Jviz Team.
+[MIT LICENSE](./LICENSE) &copy; The Jviz Team.
