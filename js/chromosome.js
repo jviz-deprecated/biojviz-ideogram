@@ -204,9 +204,6 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
 
   //Hide the loading
   this.loading(false);
-
-  //Draw the test zone
-  this._canvas.drawTest();
 };
 
 //Check over chromosome zone
