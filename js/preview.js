@@ -326,7 +326,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
     this.foot(this._preview.foot);
 
     //Remove the pointer cursor
-    jviz.cursor.clear('pointer');
+    jviz.cursor.remove('pointer');
 
     //Exit
     return;
@@ -366,7 +366,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   this.foot('<b>Chromosome ' + chr_name + '  </b>-  ' + chr_regions + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.');
 
   //Add the pointer cursor
-  jviz.cursor.pointer();
+  jviz.cursor.set('pointer');
 };
 
 //Preview mouse leave
