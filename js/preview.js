@@ -146,7 +146,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     canvas.Text({ x: text_x, y: text_y, text: text_txt, color: text_color, size: text_size, font: text_font, align: text_align });
 
     //Get the regions for this chromosome
-    var regions = (typeof this._regions[chr.id] === 'undefined') ? [] : this._regions[chr.id];
+    var regions = (typeof this._regions.list[chr.id] === 'undefined') ? [] : this._regions.list[chr.id];
 
     //Read all the regions
     for(var j = 0; j < regions.length; j++)
