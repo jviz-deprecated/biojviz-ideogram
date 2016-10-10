@@ -246,6 +246,9 @@ jviz.modules.ideogram.prototype.previewDraw = function()
   //Set loading as false
   this.loading(false);
 
+  //Add the foot info
+  this.foot(this._preview.foot);
+
   //Draw the test zone
   this._canvas.drawTest();
 };
@@ -321,7 +324,14 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
 
   //Check for no chromosome
   //if(index === -1){ return this.removeCursor('hand'); }
-  if(index === -1){ return; }
+  if(index === -1)
+  {
+    //Reset the foot content
+    this.foot(this._preview.foot);
+
+    //Exit
+    return;
+  }
 
   //Get the chromosome position
   var chr = this._preview.positions[index];
@@ -346,6 +356,9 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
 
   //Set the fill color
   canvas.Fill({ color: this._preview.hover.color, opacity: this._preview.hover.opacity });
+
+  //Update the foot content
+  this.foot('Chromosome ' + this._genome.chromosomes[index].name);
 
   //Add the hand cursor
   //this.CursorSet('hand');
