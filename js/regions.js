@@ -8,7 +8,7 @@ jviz.modules.ideogram.prototype.regions = function(data)
   this.loading(true);
 
   //Reset the regions list
-  this.regions.list = {};
+  this._regions.list = {};
 
   //Read all the regions
   for(var i = 0; i < data.length; i++)
@@ -17,10 +17,10 @@ jviz.modules.ideogram.prototype.regions = function(data)
     var region = data[i];
 
     //Check if chromosome exists
-    if(typeof this.regions.list[region.chromosome] === 'undefined')
+    if(typeof this._regions.list[region.chromosome] === 'undefined')
     {
       //Create the chromosome
-      this.regions.list[region.chromosome] = [];
+      this._regions.list[region.chromosome] = [];
     }
 
     //Check the region name or label
@@ -36,7 +36,7 @@ jviz.modules.ideogram.prototype.regions = function(data)
     region.end = parseInt(region.end);
 
     //Save the region
-    this.regions.list[region.chromosome].push(region);
+    this._regions.list[region.chromosome].push(region);
   }
 
   //Draw the preview
