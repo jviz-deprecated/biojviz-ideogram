@@ -20,7 +20,7 @@ jviz.modules.ideogram.prototype.regions = function(data)
     if(typeof this.regions.list[region.chromosome] === 'undefined')
     {
       //Create the chromosome
-      this.regions.list[regions.chromosome] = [];
+      this.regions.list[region.chromosome] = [];
     }
 
     //Check the region name or label
@@ -33,7 +33,7 @@ jviz.modules.ideogram.prototype.regions = function(data)
     region.start = parseInt(region.start);
 
     //Parse the end position
-    region.end = parseInt(region.end); 
+    region.end = parseInt(region.end);
 
     //Save the region
     this.regions.list[region.chromosome].push(region);
