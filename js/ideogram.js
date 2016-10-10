@@ -57,6 +57,7 @@ jviz.modules.ideogram = function(opt)
   //Regions list
   this._regions = {};
   this._regions.list = {}; //Regions list
+  this._regions.name = 'Regions'; //Regions name
 
   //Fill object
   this._fill = {};
@@ -121,7 +122,7 @@ jviz.modules.ideogram = function(opt)
 
   //Chromosome position
   this._chromosome.position = {};
-  this._chromosome.position.width = 90; //Position width
+  this._chromosome.position.width = 80; //Position width
   this._chromosome.position.height = 20; //Position height
   this._chromosome.position.posx = 0; //Position x
   this._chromosome.position.posy = 0; //Position y
