@@ -289,7 +289,7 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
   if(index < 0)
   {
     //Remove the pointer cursor
-    jviz.cursor.clear('pointer');
+    jviz.cursor.remove('pointer');
 
     //Exit
     return;
@@ -302,7 +302,7 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
   //this.ChromosomeDrawMarksIndex(canvas, index, this.marks.chromosomes.opacity);
 
   //Add the pointer cursor
-  jviz.cursor.pointer();
+  jviz.cursor.set('pointer');
 };
 
 //Chromosome leave
