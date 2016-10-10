@@ -39,8 +39,8 @@ jviz.modules.ideogram.prototype.regions = function(data)
     this._regions.list[region.chromosome].push(region);
   }
 
-  //Draw the preview
-  this.draw(-1);
+  //Draw the data
+  this.draw(this._chromosome.now);
 
   //Return this
   return this;
