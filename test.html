@@ -8,6 +8,9 @@
 <script type="text/javascript" src="./build/vendor/cv.min.js"></script>
 <script type="text/javascript" src="./build/jviz.js"></script>
 <script type="text/javascript" src="./build/ideogram.js"></script>
+<!-- Test files -->
+<script type="text/javascript" src="./test/genome.js"></script>
+<script type="text/javascript" src="./test/regions.js"></script>
 <!-- Styles -->
 <style>body { padding: 50px !important; } </style>
 <!-- Main script -->
@@ -21,8 +24,14 @@
     //Table options
     var opt = { parent: 'test', id: 'myIdeogram' };
 
+    //Set the genome data
+    opt.genome = test_genome;
+
+    //Save the regions
+    opt.regions = test_regions;
+
     //Initialize the table
-    t = new jviz.modules.ideogram(opt);
+    el = new jviz.modules.ideogram(opt);
   });
 </script>
 <!-- Test div -->
