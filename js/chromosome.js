@@ -1,3 +1,32 @@
+//Open a chromosome
+jviz.modules.ideogram.prototype.chromosome = function(id)
+{
+  //Check for undefined
+  if(typeof id === 'undefined'){ return this; }
+
+  //Check for integer
+  if(typeof id === 'number'){ return this.draw(id); }
+
+  //Find the chromosome name
+  for(var i = 0; i < this._genome.chromosomes.length; i++)
+  {
+    //Get the chromosome
+    var chr = this._genome.chromosomes[i];
+
+    //Check the chromosome name
+    if(chr.name !== id){ continue; }
+
+    //Draw the chromosome and exit
+    return this.draw(i);
+  }
+
+  //Display error
+  jviz.console.error('Chromosome ' + id + ' not found', null);
+
+  //Exit
+  return this;
+};
+
 //Draw a chromosome
 jviz.modules.ideogram.prototype.chromosomeDraw = function()
 {
