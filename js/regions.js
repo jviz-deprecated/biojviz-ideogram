@@ -29,6 +29,12 @@ jviz.modules.ideogram.prototype.regions = function(data)
     //Check the region label
     region.label = (typeof region.label === 'undefined') ? region.name : region.label;
 
+    //Parse the start position
+    region.start = parseInt(region.start);
+
+    //Parse the end position
+    region.end = parseInt(region.end); 
+
     //Save the region
     this.regions.list[region.chromosome].push(region);
   }
