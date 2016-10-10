@@ -56,6 +56,7 @@ jviz.modules.ideogram = function(opt)
 
   //Regions list
   this._regions = {};
+  this._regions.list = {}; //Regions list
 
   //Fill object
   this._fill = {};
@@ -75,6 +76,7 @@ jviz.modules.ideogram = function(opt)
   this._preview.positions = []; //Preview positions
   this._preview.margin = 0; //Preview margin
   this._preview.max = 0; //Preview max chromosome size
+  this._preview.layer = 2; //Preview draw layer
 
   //Preview chromosomes
   this._preview.chromosome = {};
@@ -107,6 +109,7 @@ jviz.modules.ideogram = function(opt)
   this._chromosome.now = -1; //Actual chromosome
   this._chromosome.scale = 1; //Chromosome scale
   this._chromosome.radius = 20; //Chromosome radius
+  this._chromosome.layer = 2; //Chromosome draw layer
 
   //Chromosome util positions
   this._chromosome.utils = {};
@@ -125,6 +128,7 @@ jviz.modules.ideogram = function(opt)
   this._chromosome.position.margin = 26; //Position margin
   this._chromosome.position.fill = jviz.colors.blue2.hex; //Position fill color
   this._chromosome.position.triangle = 6; //Triangle width
+  this._chromosome.position.layer = 1; //Position layer
 
   //Chromosome position text
   this._chromosome.position.text = {};
@@ -151,6 +155,7 @@ jviz.modules.ideogram = function(opt)
   this._chromosome.regions.label.radius = 5; //Regions label radius
   this._chromosome.regions.label.fill = jviz.colors.red2.hex; //Regions label color
   this._chromosome.regions.label.opacity = 1.0; //Regions label opacity
+  this._chromosome.regions.label.layer = 3; //Regions label canvas layer
   this._chromosome.regions.label.triangle = 6; //Regions label triangle
   this._chromosome.regions.label.hover = -1; //Regions label hover now
 
@@ -164,6 +169,7 @@ jviz.modules.ideogram = function(opt)
 
   //Chromosome regions preview
   this._chromosome.regions.preview = {};
+  this._chromosome.regions.preview.layer = 0; //Preview chromosome regions layer
   this._chromosome.regions.preview.active = true; //Preview chromosome regions active
   this._chromosome.regions.preview.opacity = 0.3; //Preview chromosome regions opacity
 
@@ -212,6 +218,9 @@ jviz.modules.ideogram = function(opt)
 
   //Check the genomes
   if(typeof opt.genome === 'object'){ this.genome(opt.genome); }
+
+  //Check the regions
+  if(typeof opt.regions === 'object'){ this.regions(opt.regions); }
 
   //Return this
   return this;
