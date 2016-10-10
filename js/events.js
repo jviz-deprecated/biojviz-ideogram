@@ -10,6 +10,9 @@ jviz.modules.ideogram.prototype.events = function()
   //Add the mouse down event
   jviz.mouse.down(id, function(e, x, y)
   {
+    //Check for loading
+    if(self.loading() === true){ return; }
+
     //Check the chromosome
     (self._chromosome.now === -1) ? self.previewClick(x,y) : self.chromosomeClick(x,y);
   });
@@ -17,6 +20,9 @@ jviz.modules.ideogram.prototype.events = function()
   //Add the mouse over event
   jviz.mouse.move(id, function(e, x, y)
   {
+    //Check for loading
+    if(self.loading() === true){ return; }
+
     //Check the chromosome
     (self._chromosome.now === -1) ? self.previewMove(x,y) : self.chromosomeMove(x,y);
   });
@@ -24,6 +30,9 @@ jviz.modules.ideogram.prototype.events = function()
   //Add the mouse leave event
   jviz.mouse.leave(id, function(e, x, y)
   {
+    //Check for loading
+    if(self.loading() === true){ return; }
+    
     //Check the chromosome
     (self._chromosome.now === -1) ? self.previewLeave() : self.chromosomeLeave();
   });
