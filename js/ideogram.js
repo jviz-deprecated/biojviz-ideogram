@@ -43,7 +43,7 @@ jviz.modules.ideogram = function(opt)
   jviz.dom.append(this._parent, { _tag: 'div', id: this._id, class: this._class });
 
   //Build the panel
-  this._panel = new jviz.components.panel({ id: this._id + '-panel', parent: this._id, title: this._title, detail: this._detail, showFoot: false });
+  this._panel = new jviz.components.panel({ id: this._id + '-panel', parent: this._id, title: this._title, detail: this._detail });
 
   //Build the canvas layers
   this._canvas = new jviz.components.canvas({ id: this._id + '-canvas', parent: this._panel.body().id, layers: this._layers, width: this._width, height: this._height });
@@ -77,6 +77,7 @@ jviz.modules.ideogram = function(opt)
   this._preview.margin = 0; //Preview margin
   this._preview.max = 0; //Preview max chromosome size
   this._preview.layer = 2; //Preview draw layer
+  this._preview.foot = 'No chromosome selected'; //Default foot text
 
   //Preview chromosomes
   this._preview.chromosome = {};
