@@ -218,8 +218,11 @@ jviz.modules.ideogram = function(opt)
   this._marks.text.color = '#ffffff'; //Marks text color
   this._marks.text.align = 'center'; //Marks text align
 
-  //Add the events
+  //Add the mouse events
   this.events();
+
+  //Add the events factory
+  jviz.factory.events(this);
 
   //Check the genomes
   if(typeof opt.genome === 'object'){ this.genome(opt.genome); }
