@@ -248,9 +248,6 @@ jviz.modules.ideogram.prototype.previewDraw = function()
 
   //Add the foot info
   this.foot(this._preview.foot);
-
-  //Draw the test zone
-  this._canvas.drawTest();
 };
 
 //Get the chromosome
