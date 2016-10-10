@@ -33,11 +33,14 @@ jviz.modules.ideogram = function(opt)
   //Loading
   this._loading = false;
 
+  //Margins
+  this._margins = { top: 10, bottom: 20, left: 40, right: 40 };
+
   //Default layout width
   this._width = (typeof opt.width !== 'undefined') ? opt.width : '100%';
 
   //Default canvas height
-  this._height = (typeof opt.height !== 'undefined') ? opt.height : 160;
+  this._height = (typeof opt.height !== 'undefined') ? opt.height : 120;
 
   //Build the element
   jviz.dom.append(this._parent, { _tag: 'div', id: this._id, class: this._class });
@@ -46,7 +49,7 @@ jviz.modules.ideogram = function(opt)
   this._panel = new jviz.components.panel({ id: this._id + '-panel', parent: this._id, title: this._title, detail: this._detail });
 
   //Build the canvas layers
-  this._canvas = new jviz.components.canvas({ id: this._id + '-canvas', parent: this._panel.body().id, layers: this._layers, width: this._width, height: this._height });
+  this._canvas = new jviz.components.canvas({ id: this._id + '-canvas', parent: this._panel.body().id, layers: this._layers, width: this._width, height: this._height, margin: this._margins });
 
   //Genome object
   this._genome = {};
