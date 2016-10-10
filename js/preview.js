@@ -320,11 +320,13 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   canvas.Clear();
 
   //Check for no chromosome
-  //if(index === -1){ return this.removeCursor('hand'); }
   if(index === -1)
   {
     //Reset the foot content
     this.foot(this._preview.foot);
+
+    //Remove the pointer cursor
+    jviz.cursor.clear();
 
     //Exit
     return;
@@ -363,8 +365,8 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   //Update the foot content
   this.foot('<b>Chromosome ' + chr_name + '  </b>-  ' + chr_regions + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.');
 
-  //Add the hand cursor
-  //this.CursorSet('hand');
+  //Add the pointer cursor
+  jviz.cursor.pointer();
 };
 
 //Preview mouse leave
