@@ -286,8 +286,14 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
   this._canvas.layer(this._chromosome.regions.label.layer).Clear();
 
   //Check for null index
-  //if(index < 0) { return this.CursorRemove('hand'); }
-  if(index < 0){ return; }
+  if(index < 0)
+  {
+    //Remove the pointer cursor
+    jviz.cursor.clear('pointer');
+
+    //Exit
+    return;
+  }
 
   //Draw the region
   this.regionsDrawLabel(this._chromosome.regions.label.layer, index, this._chromosome.regions.label.opacity);
@@ -295,8 +301,8 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
   //Draw the marks
   //this.ChromosomeDrawMarksIndex(canvas, index, this.marks.chromosomes.opacity);
 
-  //Add the hand cursor
-  //this.CursorSet('hand');
+  //Add the pointer cursor
+  jviz.cursor.pointer();
 };
 
 //Chromosome leave
