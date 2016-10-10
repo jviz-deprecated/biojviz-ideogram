@@ -10,6 +10,19 @@ jviz.modules.ideogram.prototype.draw = function(chr)
   //Check the chromosome
   if(typeof chr === 'undefined'){ var chr = this._chromosome.now; }
 
+  //Check the chromosome value
+  if(chr < -1 || this._genomes.chromosomes.length <= chr)
+  {
+    //Get the max chromosome index
+    var index_max = this._genomes.chromosomes.length - 1;
+
+    //Display error
+    jviz.console.error('Invalid chromosome index' + chr + '. It must be between -1 and ' + index_max);
+
+    //Exit
+    return this;
+  }
+
   //Reset the actual chromosome
   this._chromosome.now = chr;
 
