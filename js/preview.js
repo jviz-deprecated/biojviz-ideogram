@@ -326,7 +326,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
     this.foot(this._preview.foot);
 
     //Remove the pointer cursor
-    jviz.cursor.clear();
+    jviz.cursor.clear('pointer');
 
     //Exit
     return;
