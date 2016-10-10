@@ -23,7 +23,7 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   var chr = this._genome.chromosomes[this._chromosome.now];
 
   //Get the mark for this chromosome
-  //var marks = this.GetMarks(chr.id);
+  //var marks = this.GetMarks(chr.name);
   var marks = [];
 
   //Save the chromosome scale
@@ -106,7 +106,7 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   this._chromosome.regions.label.posy = this._chromosome.posy + this._chromosome.height + this._chromosome.regions.label.margin;
 
   //Get the regions for this chromosome
-  var regions = (typeof this._regions.list[chr.id] === 'undefined') ? [] : this._regions.list[chr.id];
+  var regions = (typeof this._regions.list[chr.name] === 'undefined') ? [] : this._regions.list[chr.name];
 
   //Initialize the chromosome regions positions list
   this._chromosome.regions.list = [];
