@@ -89,7 +89,7 @@ jviz.modules.ideogram.prototype.regionsDrawLabel = function(layer, index, opacit
   if(typeof opacity === 'undefined'){ var opacity = 1.0; }
 
   //Get the canvas layer
-  var canvas = this._canvas.layer(canvas_layer);
+  var canvas = this._canvas.layer(layer);
 
   //Get the region info
   var region = this._chromosome.regions.list[index];
