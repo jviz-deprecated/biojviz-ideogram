@@ -297,8 +297,17 @@ jviz.modules.ideogram.prototype.previewClick = function(x, y)
   //Check for undefined chromosome
   if(index === -1){ return; }
 
-  //Draw this chromosome
-  this.draw(index);
+  //Get the chromosome info
+  var chr = this._genome.chromosomes[index];
+
+  //Emit the event
+  var result = this.emit('click:chromosome', chr.name, index);
+
+  //Check for undefined result
+  if(result === false){ return; }
+
+  //Open this chromosome
+  this.chromosome(index);
 };
 
 //Draw the karyotypes hover
