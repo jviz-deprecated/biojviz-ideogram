@@ -357,8 +357,14 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   //Set the fill color
   canvas.Fill({ color: this._preview.hover.color, opacity: this._preview.hover.opacity });
 
+  //Get the chromosome name
+  var chr_name = this._genome.chromosomes[index].name;
+
+  //Get the regions on chromosome
+  var chr_regions = (typeof this._regions.list[chr_name] !== 'undefined') ? this._regions.list[chr_name].length : 0;
+
   //Update the foot content
-  this.foot('Chromosome ' + this._genome.chromosomes[index].name);
+  this.foot('<b>Chromosome ' + chr_name + '  </b>-  ' + chr_regions + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.');
 
   //Add the hand cursor
   //this.CursorSet('hand');
