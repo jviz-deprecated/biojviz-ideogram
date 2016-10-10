@@ -14,6 +14,12 @@ jviz.modules.ideogram.prototype.previewMargin = function()
 //Draw the preview
 jviz.modules.ideogram.prototype.previewDraw = function()
 {
+  //Show loading
+  this.loading(true);
+
+  //Clear all layers
+  this._canvas.clear();
+
   //Get the canvas draw zone
   var draw = this._canvas.draw();
 
@@ -21,7 +27,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
   this.previewMargin();
 
   //Get the middle layer
-  var canvas = this._canvas.layer(2);
+  var canvas = this._canvas.layer(this._preview.layer);
 
   //Clear the canvas
   canvas.Clear();
@@ -239,6 +245,9 @@ jviz.modules.ideogram.prototype.previewDraw = function()
 
   //Set loading as false
   this.loading(false);
+
+  //Draw the test zone
+  this._canvas.drawTest();
 };
 
 //Get the chromosome
