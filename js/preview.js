@@ -247,7 +247,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
   this.loading(false);
 
   //Add the foot info
-  this.foot(this._preview.foot.default);
+  this.foot(this._foot.default);
 };
 
 //Get the chromosome
