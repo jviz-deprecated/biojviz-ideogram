@@ -62,6 +62,12 @@ jviz.modules.ideogram = function(opt)
   this._regions.list = {}; //Regions list
   this._regions.name = 'Regions'; //Regions name
 
+  //Foot info
+  this._foot = {};
+  this._foot.default = 'No chromosome selected'; //Default foot text
+  this._foot.chromosome = '<b>Chromosome {chromosome}</b>  - {regions} regions on this chromosome.'; //Chromosome text
+  this._foot.region = '<b>{region_name}</b>'; //Chromosome region info
+
   //Fill object
   this._fill = {};
 
@@ -81,11 +87,6 @@ jviz.modules.ideogram = function(opt)
   this._preview.margin = 0; //Preview margin
   this._preview.max = 0; //Preview max chromosome size
   this._preview.layer = 2; //Preview draw layer
-
-  //Preview foot
-  this._preview.foot = {};
-  this._preview.foot.default = 'No chromosome selected'; //Default foot text
-  this._preview.foot.chromosome = '<b>Chromosome {chromosome}</b>  - {regions} regions on this chromosome.'; //Chromosome text
 
   //Preview chromosomes
   this._preview.chromosome = {};
@@ -119,11 +120,6 @@ jviz.modules.ideogram = function(opt)
   this._chromosome.scale = 1; //Chromosome scale
   this._chromosome.radius = 20; //Chromosome radius
   this._chromosome.layer = 2; //Chromosome draw layer
-
-  //Chromosome foot
-  this._chromosome.foot = {};
-  this._chromosome.default = '<b>Chromosome {chromosome}</b>  - {regions} regions on this chromosome.'; //Chromosome default text
-  this._chromosome.region = '<b>{region_name}</b>'; //Chromosome region info
 
   //Chromosome util positions
   this._chromosome.utils = {};
