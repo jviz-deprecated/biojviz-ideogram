@@ -35,6 +35,9 @@
 
     //Add the click chromosome event
     el.on('click:chromosome', function(name, index){ console.log('Open chromosome ' + name); });
+
+    //Add the click region event
+    el.on('click:region', function(name, chromosome, start, end){ console.log('Open region ' + name); });
   });
 </script>
 <!-- Test div -->
