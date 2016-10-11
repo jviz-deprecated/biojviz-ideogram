@@ -32,6 +32,13 @@ Emit the `handler` function when the user clicks on a chromosome on the ideogram
 - `name`: the chromosome name.
 - `index`: the index of the chromosome on the genome list.
 
+#### ideogram.on('click:region', handler)
+
+Emit the `handler` function when the user clicks on a region. The `handler` function will be called with the following arguments:
+- `name`: region name.
+- `chromosome`: chromosome where the region is located.
+- `start`: region start position.
+- `end`: region end position.
 
 ## License
 
