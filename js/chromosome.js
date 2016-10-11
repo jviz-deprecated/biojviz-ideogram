@@ -233,6 +233,9 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
 
   //Hide the loading
   this.loading(false);
+
+  //Update the foot content
+  this.foot('<b>Chromosome ' + chr.name + '  </b>-  ' + regions.length + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.'); 
 };
 
 //Check over chromosome zone
