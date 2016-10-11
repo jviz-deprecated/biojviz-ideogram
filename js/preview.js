@@ -332,7 +332,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   if(index === -1)
   {
     //Reset the foot content
-    this.foot(this._preview.foot);
+    this.foot(this._preview.foot.default);
 
     //Remove the pointer cursor
     jviz.cursor.remove('pointer');
