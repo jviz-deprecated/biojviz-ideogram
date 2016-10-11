@@ -235,7 +235,7 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   this.loading(false);
 
   //Update the foot content
-  this.foot('<b>Chromosome ' + chr.name + '  </b>-  ' + regions.length + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.'); 
+  this.foot(this._chromosome.foot.default.replace('{chromosome}', chr.name).replace('{regions}', regions.length));
 };
 
 //Check over chromosome zone
