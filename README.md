@@ -26,6 +26,13 @@ Open the provided chromosome. The `index` argument must be a string with the chr
 
 ### Events
 
+#### ideogram.on('click:chromosome', handler)
+
+Emit the `handler` function when the user clicks on a chromosome on the ideogram. The `handler` function will be called with the following arguments:
+- `name`: the chromosome name.
+- `index`: the index of the chromosome on the genome list.
+
+
 ## License
 
 [MIT LICENSE](./LICENSE) &copy; The Jviz Team.
