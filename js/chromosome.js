@@ -210,6 +210,9 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
 
   //Hide the loading
   this.loading(false);
+
+  //Update the foot content
+  this.foot(this._foot.chromosome.replace('{chromosome}', chr.name).replace('{regions}', regions.length));
 };
 
 //Check over chromosome zone
