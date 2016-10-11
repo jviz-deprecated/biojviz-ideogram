@@ -51,10 +51,6 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   //Get the chromosome info
   var chr = this._genome.chromosomes[this._chromosome.now];
 
-  //Get the mark for this chromosome
-  //var marks = this.GetMarks(chr.name);
-  var marks = [];
-
   //Save the chromosome scale
   this._chromosome.scale = draw.width / chr.length;
 
@@ -176,25 +172,6 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
     //Save the middle point
     region.pmiddle = (region.pstart + region.pend) / 2;
 
-    //Marks count
-    var marks_count = 0;
-
-    //Read all the marks
-    for(var j = 0; j < marks.length; j++)
-    {
-      //Get the mark
-      var mark = marks[j];
-
-      //Check if mark is on the region
-      if(region.end < mark.start || mark.end < region.start){ continue; }
-
-      //Increment the counter
-      marks_count = marks_count + 1;
-    }
-
-    //Save the marks count
-    region.marks = marks_count;
-
     //Save the region position
     this._chromosome.regions.list.push(region);
 
@@ -263,7 +240,14 @@ jviz.modules.ideogram.prototype.chromosomeClick = function(x, y)
   //Check for undefined region
   if(index === -1){ return; }
 
-  //Open the region
+  //Get the chromosome info
+  var chr = this._genome.chromosomes[this._chromosome.now];
+
+  //Get the region info
+  var region = this._chromosome.regions.list[index];
+
+  //Call the event
+  this.emit('click:region', region.name, chr.name, region.start, region.end, index);
 };
 
 //Chromosome move
