@@ -247,7 +247,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
   this.loading(false);
 
   //Add the foot info
-  this.foot(this._preview.foot);
+  this.foot(this._preview.foot.default);
 };
 
 //Get the chromosome
@@ -372,7 +372,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   var chr_regions = (typeof this._regions.list[chr_name] !== 'undefined') ? this._regions.list[chr_name].length : 0;
 
   //Update the foot content
-  this.foot(this._preview.foot.replace('{chromosome}', chr_name).replace('{regions}', chr_regions));
+  this.foot(this._preview.foot.chromosome.replace('{chromosome}', chr_name).replace('{regions}', chr_regions));
 
   //Add the pointer cursor
   jviz.cursor.set('pointer');
