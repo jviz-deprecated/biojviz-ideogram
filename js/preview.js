@@ -372,7 +372,7 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   var chr_regions = (typeof this._regions.list[chr_name] !== 'undefined') ? this._regions.list[chr_name].length : 0;
 
   //Update the foot content
-  this.foot('<b>Chromosome ' + chr_name + '  </b>-  ' + chr_regions + ' ' + this._regions.name.toLowerCase() + ' on this chromosome.');
+  this.foot(this._preview.foot.replace('{chromosome}', chr_name).replace('{regions}', chr_regions));
 
   //Add the pointer cursor
   jviz.cursor.set('pointer');
