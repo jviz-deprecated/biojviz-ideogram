@@ -53,6 +53,14 @@ Emit the `handler` function when the user clicks on a region. The `handler` func
 - `start`: region start position.
 - `end`: region end position.
 
+#### ideogram.on('click:btn:preview', handler)
+
+Emit the `handler` function when the user clicks on the preview button.
+
+#### ideogram.on('click:btn:table', handler)
+
+Emit the `handler` function when the user clicks on the table button.
+
 ## License
 
 [MIT LICENSE](./LICENSE) &copy; The Jviz Team.
