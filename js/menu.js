@@ -23,8 +23,25 @@ jviz.modules.ideogram.prototype.menu = function()
   var self = this;
 
   //Add the preview button icon event
-  jviz.mouse.down(this._menu.preview.id, function(e){ return self.draw(-1); });
+  jviz.mouse.down(this._menu.preview.id, function(e){ return self.menuClickPreview(); });
 
   //Add the table button icon event
-  //jviz.mouse.down(this._menu.table.id, function(e){ return self.table(); });
+  //jviz.mouse.down(this._menu.table.id, function(e){ return self.menuClickTable(); });
+};
+
+//Click on the preview button
+jviz.modules.ideogram.prototype.menuClickPreview = function()
+{
+  //Emit the event
+  this.emit('click:btn:preview');
+
+  //Draw the preview view
+  this.draw(-1);
+};
+
+//Click on the table button
+jviz.modules.ideogram.prototype.menuClickTable = function()
+{
+  //Emit the event
+  this.emit('click:btn:table');
 };
