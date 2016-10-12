@@ -24,6 +24,19 @@ jviz install ideogram
 
 Open the provided chromosome. The `index` argument must be a string with the chromosome name.
 
+#### ideogram.getChromosomes()
+
+Return an array with all the chromosomes.
+
+#### ideogram.getRegions(name)
+
+Return an array with all the regions for a given chromosome. The `name` argument must be an string with the name of the wanted chromosome.
+
+#### ideogram.getMarks(name)
+
+Return an array with the marked regions. The `name` argument must be an string with the name of the wanted chromosome.
+
+
 ### Events
 
 #### ideogram.on('click:chromosome', handler)
