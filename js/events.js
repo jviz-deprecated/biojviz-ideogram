@@ -32,7 +32,7 @@ jviz.modules.ideogram.prototype.events = function()
   {
     //Check for loading
     if(self.loading() === true){ return; }
-    
+
     //Check the chromosome
     (self._chromosome.now === -1) ? self.previewLeave() : self.chromosomeLeave();
   });
