@@ -33,7 +33,7 @@ jviz.modules.ideogram.prototype.menu = function()
 jviz.modules.ideogram.prototype.menuClickPreview = function()
 {
   //Emit the event
-  this.emit('click:btn:preview');
+  this._events.emit('click:btn:preview');
 
   //Draw the preview view
   this.draw(-1);
@@ -43,5 +43,5 @@ jviz.modules.ideogram.prototype.menuClickPreview = function()
 jviz.modules.ideogram.prototype.menuClickTable = function()
 {
   //Emit the event
-  this.emit('click:btn:table');
+  this._events.emit('click:btn:table');
 };
