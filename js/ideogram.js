@@ -250,8 +250,8 @@ jviz.modules.ideogram = function(opt)
   //Add the mouse events
   this.events();
 
-  //Add the events factory
-  jviz.factory.events(this);
+  //Add the events emitter
+  this._events = new jviz.events();
 
   //Check the genomes
   if(typeof opt.genome === 'object'){ this.genome(opt.genome); }
@@ -262,3 +262,6 @@ jviz.modules.ideogram = function(opt)
   //Return this
   return this;
 };
+
+//Register events
+jviz.modules.ideogram.prototype.on = function(name, listener){ return this._events.add(name, listener); };
