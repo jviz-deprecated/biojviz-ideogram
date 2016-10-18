@@ -247,7 +247,7 @@ jviz.modules.ideogram.prototype.chromosomeClick = function(x, y)
   var region = this._chromosome.regions.list[index];
 
   //Call the event
-  this.emit('click:region', region.name, chr.name, region.start, region.end, index);
+  this._events.emit('click:region', region.name, chr.name, region.start, region.end, index);
 };
 
 //Chromosome move
