@@ -301,7 +301,7 @@ jviz.modules.ideogram.prototype.previewClick = function(x, y)
   var chr = this._genome.chromosomes[index];
 
   //Emit the event
-  var result = this.emit('click:chromosome', chr.name, index);
+  var result = this._events.emit('click:chromosome', chr.name, index);
 
   //Check for undefined result
   if(result === false){ return; }
