@@ -33,7 +33,7 @@ jviz.modules.ideogram.prototype.positionDraw = function(x, y)
   var text_text = Math.floor((x - this._chromosome.posx) / this._chromosome.scale);
 
   //Format the real position
-  text_text = jviz.math.formatNumber(text_text, '.');
+  text_text = jviz.utils.format.number(text_text, '.');
 
   //Text position x
   var text_x = x;
