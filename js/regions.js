@@ -36,7 +36,7 @@ jviz.modules.ideogram.prototype.regions = function(data)
     region.end = parseInt(region.end);
 
     //Check for highlighted region
-    if(typeof region.mark === 'undefined'){ region.mark = false; } 
+    if(typeof region.mark === 'undefined'){ region.mark = false; }
 
     //Save the region
     this._regions.list[region.chromosome].push(region);
