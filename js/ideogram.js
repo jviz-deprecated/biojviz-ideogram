@@ -13,7 +13,7 @@ jviz.modules.ideogram = function(opt)
   if(typeof opt !== 'object'){ var opt = {}; }
 
   //Save the ideogram ID
-  this._id = (typeof opt.id === 'undefined') ? jviz.utils.getID({ prefix: 'ideogram', length: 5 }) : opt.id;
+  this._id = (typeof opt.id === 'undefined') ? jviz.misc.getID({ prefix: 'ideogram', length: 5 }) : opt.id;
 
   //Save the ideogram class
   this._class = (typeof opt.class === 'undefined') ? 'jviz-modules-ideogram' : opt.class;
@@ -251,7 +251,7 @@ jviz.modules.ideogram = function(opt)
   this.events();
 
   //Add the events emitter
-  this._events = new jviz.events();
+  this._events = new jviz.commons.events();
 
   //Check the genomes
   if(typeof opt.genome === 'object'){ this.genome(opt.genome); }
