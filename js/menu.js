@@ -23,10 +23,10 @@ jviz.modules.ideogram.prototype.menu = function()
   var self = this;
 
   //Add the preview button icon event
-  jviz.commons.mouse.down(this._menu.preview.id, function(e){ return self.menuClickPreview(); });
+  jviz.dom.event(this._menu.preview.id, 'click', function(e){ return self.menuClickPreview(); });
 
   //Add the table button icon event
-  //jviz.commons.mouse.down(this._menu.table.id, function(e){ return self.menuClickTable(); });
+  //jviz.dom.event(this._menu.table.id, 'click', function(e){ return self.menuClickTable(); });
 };
 
 //Click on the preview button
