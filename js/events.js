@@ -8,7 +8,7 @@ jviz.modules.ideogram.prototype.events = function()
   var self = this;
 
   //Add the mouse down event
-  jviz.mouse.down(id, function(e, x, y)
+  jviz.commons.mouse.down(id, function(e, x, y)
   {
     //Check for loading
     if(self.loading() === true){ return; }
@@ -18,7 +18,7 @@ jviz.modules.ideogram.prototype.events = function()
   });
 
   //Add the mouse over event
-  jviz.mouse.move(id, function(e, x, y)
+  jviz.commons.mouse.move(id, function(e, x, y)
   {
     //Check for loading
     if(self.loading() === true){ return; }
@@ -28,7 +28,7 @@ jviz.modules.ideogram.prototype.events = function()
   });
 
   //Add the mouse leave event
-  jviz.mouse.leave(id, function(e, x, y)
+  jviz.commons.mouse.leave(id, function(e, x, y)
   {
     //Check for loading
     if(self.loading() === true){ return; }
