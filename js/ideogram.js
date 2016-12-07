@@ -49,7 +49,7 @@ jviz.modules.ideogram = function(opt)
   this._panel = new jviz.components.panel({ id: this._id + '-panel', parent: this._id, title: this._title, detail: this._detail });
 
   //Build the canvas layers
-  this._canvas = new jviz.components.canvas({ id: this._id + '-canvas', parent: this._panel.body().id, layers: this._layers, width: this._width, height: this._height, margin: this._margins });
+  this._canvas = new jviz.components.canvas({ id: this._id + '-canvas', parent: this._panel.body(), layers: this._layers, width: this._width, height: this._height, margin: this._margins });
 
   //Genome object
   this._genome = {};
