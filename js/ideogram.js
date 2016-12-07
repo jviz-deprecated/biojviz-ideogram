@@ -226,12 +226,11 @@ jviz.modules.ideogram = function(opt)
   //Menu
   this._menu = {};
   this._menu.id = this._id + '-menu'; //Menu ID
-  this._menu.class = this._panel.el(); //Menu class styles
 
   //Ideogram preview button
   this._menu.preview = {};
   this._menu.preview.id = this._menu.id + '-preview'; //Preview button ID
-  this._menu.preview.class = this._menu.class.btn.blue; //Preview button class
+  this._menu.preview.color = 'blue'; //Preview button color
   this._menu.preview.title = 'View all chromosomes'; //Preview button title
   this._menu.preview.text = 'All chromosomes'; //Preview button text
   this._menu.preview.img = ''; //Preview button background image
@@ -239,7 +238,7 @@ jviz.modules.ideogram = function(opt)
   //Ideogram table button
   this._menu.table = {};
   this._menu.table.id = this._menu.id + '-table'; //Table button ID
-  this._menu.table.class = this._menu.class.btn.water; //Table button class
+  this._menu.table.color = 'teal'; //Table button color
   this._menu.table.title = 'Display/Hide resume table'; //Table button title
   this._menu.table.text = 'Resume table'; //Table button title
   this._menu.table.img = ''; //Table button background image
