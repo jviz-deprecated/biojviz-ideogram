@@ -1,44 +1,17 @@
 <!-- Style sheets -->
-<link rel="stylesheet" type="text/css" href="./build/font.css">
-<link rel="stylesheet" type="text/css" href="./build/jviz.css">
-<link rel="stylesheet" type="text/css" href="./build/jviz-default.css">
-<link rel="stylesheet" type="text/css" href="./build/ideogram.css">
+<link rel="stylesheet" type="text/css" href="../build/font.css">
+<link rel="stylesheet" type="text/css" href="../build/jviz.css">
+<link rel="stylesheet" type="text/css" href="../build/jviz-default.css">
+<link rel="stylesheet" type="text/css" href="../build/ideogram.css">
 <!-- JavaScript -->
-<script type="text/javascript" src="./build/vendor/jquery.min.js"></script>
-<script type="text/javascript" src="./build/vendor/cv.min.js"></script>
-<script type="text/javascript" src="./build/jviz.js"></script>
-<script type="text/javascript" src="./build/ideogram.js"></script>
-<!-- Test files -->
-<script type="text/javascript" src="./test/genome.js"></script>
-<script type="text/javascript" src="./test/regions.js"></script>
+<script type="text/javascript" src="../build/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="../build/vendor/cv.min.js"></script>
+<script type="text/javascript" src="../build/jviz.js"></script>
+<script type="text/javascript" src="../build/ideogram.js"></script>
 <!-- Styles -->
-<style>body { padding: 50px !important; } </style>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 <!-- Main script -->
-<script type="text/javascript">
-  //Ideogram element
-  var el = null;
-
-  //Document ready function
-  $(document).ready(function()
-  {
-    //Table options
-    var opt = { parent: 'test', id: 'myIdeogram' };
-
-    //Set the genome data
-    opt.genome = test_genome;
-
-    //Save the regions
-    opt.regions = test_regions;
-
-    //Initialize the table
-    el = new jviz.modules.ideogram(opt);
-
-    //Add the click chromosome event
-    el.on('click:chromosome', function(name, index){ console.log('Open chromosome ' + name); });
-
-    //Add the click region event
-    el.on('click:region', function(name, chromosome, start, end){ console.log('Open region ' + name); });
-  });
-</script>
+<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/regions.js"></script>
 <!-- Test div -->
 <div id="test"></div>
