@@ -20,10 +20,10 @@ jviz.modules.ideogram.prototype.menu = function()
   //jviz.dom.style(id, 'background-image', this._menu.preview.img);
 
   //Add the table button
-  this._panel.addBtn(this._menu.table);
+  this._panel.el.addBtn(this._menu.table);
 
   //Add the preview button
-  this._panel.addBtn(this._menu.preview);
+  this._panel.el.addBtn(this._menu.preview);
 
   //Save this
   var self = this;
