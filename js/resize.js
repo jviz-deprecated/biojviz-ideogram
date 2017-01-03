@@ -32,10 +32,13 @@ jviz.modules.ideogram.prototype.resize = function()
   this._chromosome.draw.width = draw.width - this._chromosome.draw.margin.left - this._chromosome.draw.margin.right;
 
   //Calculate the new height
-  this._chromosome.draw.height = (draw.height / 2) - this._chromosome.draw.margin.top - this._chromosoe.draw.margin.bottom;
+  this._chromosome.draw.height = (draw.height / 2) - this._chromosome.draw.margin.top - this._chromosome.draw.margin.bottom;
 
   //Update the chromosome draw top
   this._chromosome.draw.top = this._karyotype.draw.real_height;
+
+  //Display in console
+  console.log('Resize ideogram');
 
   //Draw again
   this.draw();
