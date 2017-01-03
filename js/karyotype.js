@@ -4,9 +4,6 @@ jviz.modules.ideogram.prototype.karyotypeDraw = function()
   //Show loading
   this.loading(true);
 
-  //Clear the karyotype zone
-  this.karyotypeClear();
-
   //Get the canvas draw zone
   var draw = this._karyotype.draw;
 
@@ -16,8 +13,8 @@ jviz.modules.ideogram.prototype.karyotypeDraw = function()
   //Get the middle layer
   var canvas = this._canvas.el.layer(this._karyotype.draw.layer);
 
-  //Clear the canvas
-  canvas.Clear();
+  //Clear the karyotype zone
+  this.karyotypeClear(this._karyotype.draw.layer);
 
   //Reset the karyotypes positions
   this._karyotype.positions = [];
@@ -310,10 +307,10 @@ jviz.modules.ideogram.prototype.karyotypeMove = function(x, y)
   this._karyotype.hover.index = index;
 
   //Get the canvas
-  var canvas = this._canvas.el.layer(1);
+  var canvas = this._canvas.el.layer(this._karyotype.hover.layer);
 
-  //Clear the canvas
-  canvas.Clear();
+  //Clear the layer
+  this.karyotypeClear(this._karyotype.hover.layer);
 
   //Check for no chromosome
   if(index === -1)
@@ -371,35 +368,31 @@ jviz.modules.ideogram.prototype.karyotypeLeave = function()
   //Update the index
   this._karyotype.hover.index = -1;
 
-  //Clear the canvas layer
-  this._canvas.el.layer(1).Clear();
+  //Clear the hover layer
+  this.karyotypeClear(this._karyotype.hover.layer);
 };
 
 //Draw an empty karyotype
 jviz.modules.ideogram.prototype.karyotypeEmpty = function()
 {
   //Clear the karyotype view
-  this.karyotypeClear();
+  this.karyotypeClear(this._karyotype.draw.layer);
 
   //Exit
   return this;
 };
 
 //Clear the karyotype
-jviz.modules.ideogram.prototype.karyotypeClear = function()
+jviz.modules.ideogram.prototype.karyotypeClear = function(id)
 {
   //Get the draw zone
   var draw = this._karyotype.draw;
 
-  //Read all layers
-  for(var i = 0; i < this._canvas.layers; i++)
-  {
-    //Get the layer
-    var canvas = this._canvas.el.layer(i);
+  //Get the layer
+  var canvas = this._canvas.el.layer(id);
 
-    //Clear a rectangle
-    canvas.Clear({ x: 0, y: draw.top, width: draw.real_width, height: draw.real_height });
-  }
+  //Clear a rectangle
+  canvas.Clear({ x: 0, y: draw.top, width: draw.real_width, height: draw.real_height });
 
   //Continue
   return this;
