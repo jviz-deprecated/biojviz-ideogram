@@ -25,11 +25,17 @@ jviz.modules.ideogram.prototype.genome = function(data)
   //Save the genome assembly
   this._genome.assembly = data.assembly;
 
+  //Save the genome ID
+  this._genome.id = data.id;
+
   //Save the genome chromosomes
   this._genome.chromosomes = data.chromosomes;
 
+  //Save the number of chromosomes
+  this._genome.length = data.chromosomes.length;
+
   //Reset the karyotypes max size
-  this._preview.max = 1;
+  this._karyotype.max = 1;
 
   //Save this
   var self = this;
@@ -41,33 +47,17 @@ jviz.modules.ideogram.prototype.genome = function(data)
     chr.index = index;
 
     //Check the chromosome length
-    if(self._preview.max < chr.length){ self._preview.max = chr.length; }
+    if(self._karyotype.max < chr.length){ self._karyotype.max = chr.length; }
 
     //Return the new chromosome object
     return chr;
   });
 
   //Update the ideogram detail
-  this._panel.detail(this._genome.name + ' ' + this._genome.assembly);
+  this._panel.el.detail(this._genome.name + ' ' + this._genome.assembly);
 
   //Draw the data
-  this.draw(this._chromosome.now);
-};
-
-//Get genome data from ajax
-jviz.modules.ideogram.prototype.genomeAjax = function(opt)
-{
-  //Check the options
-  if(typeof opt !== 'object'){ return this; }
-
-  //Save this
-  var self = this;
-
-  //Reset the source data
-  this._genome.chromosomes = [];
-
-
-
+  this.draw();
 };
 
 //Check if has genomes
