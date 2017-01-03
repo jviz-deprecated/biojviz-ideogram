@@ -4,6 +4,12 @@ jviz.modules.ideogram.prototype.karyotypeDraw = function()
   //Show loading
   this.loading(true);
 
+  //Clear the chromosomes zone
+  this.karyotypeClear(this._karyotype.chromosome.layer);
+
+  //Clear the hover regions
+  this.karyotypeClear(this._karyotype.hover.layer);
+
   //Get the canvas draw zone
   var draw = this._karyotype.draw;
 
@@ -11,10 +17,7 @@ jviz.modules.ideogram.prototype.karyotypeDraw = function()
   this._karyotype.margin = (draw.width - this._genome.length * this._karyotype.chromosome.width) / (this._genome.length - 1);
 
   //Get the middle layer
-  var canvas = this._canvas.el.layer(this._karyotype.draw.layer);
-
-  //Clear the karyotype zone
-  this.karyotypeClear(this._karyotype.draw.layer);
+  var canvas = this._canvas.el.layer(this._karyotype.chromosome.layer);
 
   //Reset the karyotypes positions
   this._karyotype.positions = [];
@@ -376,7 +379,7 @@ jviz.modules.ideogram.prototype.karyotypeLeave = function()
 jviz.modules.ideogram.prototype.karyotypeEmpty = function()
 {
   //Clear the karyotype view
-  this.karyotypeClear(this._karyotype.draw.layer);
+  this.karyotypeClear(this._karyotype.chromosome.layer);
 
   //Exit
   return this;
