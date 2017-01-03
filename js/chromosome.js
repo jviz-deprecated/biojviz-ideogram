@@ -5,7 +5,14 @@ jviz.modules.ideogram.prototype.chromosome = function(id)
   if(typeof id === 'undefined'){ return this; }
 
   //Check for integer
-  if(typeof id === 'number'){ return this.draw(id); }
+  if(typeof id === 'number')
+  {
+    //Save the chromosome
+    this._chromosome.now = id;
+
+    //Draw and exit
+    return this.draw();
+  }
 
   //Find the chromosome name
   for(var i = 0; i < this._genome.chromosomes.length; i++)
@@ -16,8 +23,11 @@ jviz.modules.ideogram.prototype.chromosome = function(id)
     //Check the chromosome name
     if(chr.name !== id){ continue; }
 
-    //Draw the chromosome and exit
-    return this.draw(i);
+    //Save the actual chromosome
+    this._chromosome.now = i;
+
+    //Draw the chromosome
+    return this.draw();
   }
 
   //Display error
@@ -33,20 +43,20 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   //Show loading
   this.loading(true);
 
-  //Clear all layers
-  this._canvas.clear();
+  //Display in console
+  console.log('Draw chromosome ' + this._chromosome.now);
 
   //Check the actual chromosome
-  if(this._chromosome.now < 0){ return; }
+  if(this._chromosome.now < 0){ return this.chromosomeEmpty(); }
+
+  //Clear the chromosome view
+  this.chromosomeClear();
 
   //Get the draw zone
-  var draw = this._canvas.draw();
+  var draw = this._chromosome.draw;
 
   //Get the middle canvas
-  var canvas = this._canvas.layer(this._chromosome.layer);
-
-  //Clear the canvas
-  canvas.Clear();
+  var canvas = this._canvas.el.layer(this._chromosome.draw.layer);
 
   //Get the chromosome info
   var chr = this._genome.chromosomes[this._chromosome.now];
@@ -61,7 +71,7 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   this._chromosome.posx = draw.margin.left;
 
   //Calculate the chromosome position y
-  this._chromosome.posy = draw.margin.top + (draw.height - this._chromosome.height) / 2;
+  this._chromosome.posy = draw.top + draw.margin.top + (draw.height - this._chromosome.height) / 2;
 
   //Get the chromosome x point
   var chr_x = this._chromosome.posx;
@@ -212,7 +222,10 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   this.loading(false);
 
   //Update the foot content
-  this.foot(this._foot.chromosome.replace('{chromosome}', chr.name).replace('{regions}', regions.length));
+  this._panel.el.footContent(this._chromosome.foot.replace('{c}', chr.name).replace('{r}', regions.length));
+
+  //Exit
+  return this;
 };
 
 //Check over chromosome zone
@@ -270,7 +283,7 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
 
   //Clear the canvas
   //canvas.Clear({ x: 0, y: this.chromosome.utils.posy_end, width: this.width, height: this.chromosome.utils.down });
-  this._canvas.layer(this._chromosome.regions.label.layer).Clear();
+  this._canvas.el.layer(this._chromosome.regions.label.layer).Clear();
 
   //Check for null index
   if(index < 0)
@@ -296,4 +309,34 @@ jviz.modules.ideogram.prototype.chromosomeMove = function(x, y)
 jviz.modules.ideogram.prototype.chromosomeLeave = function()
 {
 
+};
+
+//Draw an empty chromosome
+jviz.modules.ideogram.prototype.chromosomeEmpty = function()
+{
+  //Clear the chromosome view
+  this.chromosomeClear();
+
+  //Continue
+  return this;
+};
+
+//Clear the chromosome panel
+jviz.modules.ideogram.prototype.chromosomeClear = function()
+{
+  //Get the draw
+  var draw = this._chromosome.draw;
+
+  //Read all layers
+  for(var i = 0; i < this._canvas.layers; i++)
+  {
+    //Get the canvas layer
+    var canvas = this._canvas.el.layer(i);
+
+    //Clear the canvas
+    canvas.Clear({ x: 0, y: draw.top, width: draw.real_width, height: draw.real_height });
+  }
+
+  //Exit
+  return this;
 };
