@@ -319,7 +319,7 @@ jviz.modules.ideogram.prototype.karyotypeMove = function(x, y)
   if(index === -1)
   {
     //Reset the foot content
-    this.foot(this._foot.default);
+    //this.foot(this._foot.default);
 
     //Remove the pointer cursor
     jviz.cursor.remove('pointer');
@@ -359,7 +359,7 @@ jviz.modules.ideogram.prototype.karyotypeMove = function(x, y)
   var chr_regions = (typeof this._regions.list[chr_name] !== 'undefined') ? this._regions.list[chr_name].length : 0;
 
   //Update the foot content
-  this.foot(this._foot.chromosome.replace('{chromosome}', chr_name).replace('{regions}', chr_regions));
+  //this.foot(this._foot.chromosome.replace('{chromosome}', chr_name).replace('{regions}', chr_regions));
 
   //Add the pointer cursor
   jviz.cursor.set('pointer');
@@ -373,6 +373,16 @@ jviz.modules.ideogram.prototype.karyotypeLeave = function()
 
   //Clear the canvas layer
   this._canvas.el.layer(1).Clear();
+};
+
+//Draw an empty karyotype
+jviz.modules.ideogram.prototype.karyotypeEmpty = function()
+{
+  //Clear the karyotype view
+  this.karyotypeClear();
+
+  //Exit
+  return this;
 };
 
 //Clear the karyotype
