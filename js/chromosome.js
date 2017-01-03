@@ -241,8 +241,8 @@ jviz.modules.ideogram.prototype.chromosomeOver = function(x, y)
   return true;
 };
 
-//Chromosome click
-jviz.modules.ideogram.prototype.chromosomeClick = function(x, y)
+//Chromosome click down
+jviz.modules.ideogram.prototype.chromosomeDown = function(x, y)
 {
   //Check for click over the zone
   if(this.chromosomeOver(x, y) === false){ return; }
