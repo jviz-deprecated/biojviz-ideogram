@@ -49,14 +49,14 @@ jviz.modules.ideogram.prototype.chromosomeDraw = function()
   //Check the actual chromosome
   if(this._chromosome.now < 0){ return this.chromosomeEmpty(); }
 
-  //Clear the chromosome view
-  this.chromosomeClear();
-
   //Get the draw zone
   var draw = this._chromosome.draw;
 
   //Get the middle canvas
   var canvas = this._canvas.el.layer(this._chromosome.draw.layer);
+
+  //Clear the chromosome view
+  this.chromosomeClear(this._chromosome.draw.layer);
 
   //Get the chromosome info
   var chr = this._genome.chromosomes[this._chromosome.now];
@@ -315,27 +315,23 @@ jviz.modules.ideogram.prototype.chromosomeLeave = function()
 jviz.modules.ideogram.prototype.chromosomeEmpty = function()
 {
   //Clear the chromosome view
-  this.chromosomeClear();
+  this.chromosomeClear(this._chromosome.draw.layer);
 
   //Continue
   return this;
 };
 
 //Clear the chromosome panel
-jviz.modules.ideogram.prototype.chromosomeClear = function()
+jviz.modules.ideogram.prototype.chromosomeClear = function(id)
 {
   //Get the draw
   var draw = this._chromosome.draw;
 
-  //Read all layers
-  for(var i = 0; i < this._canvas.layers; i++)
-  {
-    //Get the canvas layer
-    var canvas = this._canvas.el.layer(i);
+  //Get the canvas layer
+  var canvas = this._canvas.el.layer(id);
 
-    //Clear the canvas
-    canvas.Clear({ x: 0, y: draw.top, width: draw.real_width, height: draw.real_height });
-  }
+  //Clear the canvas
+  canvas.Clear({ x: 0, y: draw.top, width: draw.real_width, height: draw.real_height });
 
   //Exit
   return this;
