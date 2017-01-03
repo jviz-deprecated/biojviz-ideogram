@@ -11,7 +11,7 @@ jviz.modules.ideogram.prototype.resize = function()
   this._karyotype.draw.real_width = draw.width;
 
   //Save the karyotype view real height
-  this._karyotype.draw.real_width = draw.height / 2;
+  this._karyotype.draw.real_height = draw.height / 2;
 
   //Calculate the new width
   this._karyotype.draw.width = draw.width - this._karyotype.draw.margin.left - this._karyotype.draw.margin.right;
