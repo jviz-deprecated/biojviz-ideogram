@@ -1,39 +1,39 @@
 //Calculate the chromosomes margin
-jviz.modules.ideogram.prototype.previewMargin = function()
+jviz.modules.ideogram.prototype.karyotypeMargin = function()
 {
   //Get the canvas draw zone
-  var draw = this._canvas.draw();
+  var draw = this._canvas.el.draw();
 
   //Calculate free space
-	var free = draw.width - this._genome.chromosomes.length * this._preview.chromosome.width;
+	var free = draw.width - this._genome.chromosomes.length * this._karyotype.chromosome.width;
 
 	//Get the margin
-	this._preview.margin = free / (this._genome.chromosomes.length - 1);
+	this._karyotype.margin = free / (this._genome.chromosomes.length - 1);
 };
 
 //Draw the preview
-jviz.modules.ideogram.prototype.previewDraw = function()
+jviz.modules.ideogram.prototype.karyotypeDraw = function()
 {
   //Show loading
   this.loading(true);
 
   //Clear all layers
-  this._canvas.clear();
+  this._canvas.el.clear();
 
   //Get the canvas draw zone
-  var draw = this._canvas.draw();
+  var draw = this._canvas.el.draw();
 
   //Calculate the margin
-  this.previewMargin();
+  this.karyotypeMargin();
 
   //Get the middle layer
-  var canvas = this._canvas.layer(this._preview.layer);
+  var canvas = this._canvas.el.layer(this._karyotype.layer);
 
   //Clear the canvas
   canvas.Clear();
 
   //Reset the karyotypes positions
-  this._preview.positions = [];
+  this._karyotype.positions = [];
 
   //Draw all the karyotypes
   for(var i = 0; i < this._genome.chromosomes.length; i++)
@@ -46,19 +46,19 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     var marks = 0;
 
     //Get the chromosome width
-    var width = this._preview.chromosome.width;
+    var width = this._karyotype.chromosome.width;
 
     //Get the chromosome height
-    var height = draw.height * (chr.length / this._preview.max);
+    var height = draw.height * (chr.length / this._karyotype.max);
 
     //Get the chromosome position x
-    var posx = draw.margin.left + (i + 0) * this._preview.margin + i * this._preview.chromosome.width;
+    var posx = draw.margin.left + (i + 0) * this._karyotype.margin + i * this._karyotype.chromosome.width;
 
     //Get the chromosome position y
     var posy = draw.margin.top + draw.height - height;
 
     //Get the chromosome radius
-    var radius = this._preview.chromosome.radius;
+    var radius = this._karyotype.chromosome.radius;
 
     //Draw the chromosome
     canvas.Rect({ x: posx, y: posy, width: width, height: height, radius: radius });
@@ -67,19 +67,19 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     canvas.Fill({ color: this._fill.chromosome.color, opacity: this._fill.chromosome.opacity });
 
     //Save the position
-    this._preview.positions.push({ x: posx, y: posy, width: width, height: height });
+    this._karyotype.positions.push({ x: posx, y: posy, width: width, height: height });
 
     //Check for draw the centromere
     if(typeof chr.centromere !== 'undefined')
     {
       //Centromere width
-      var cent_width = this._preview.chromosome.width;
+      var cent_width = this._karyotype.chromosome.width;
 
       //Centromere start
-      var cent_start = draw.height * (chr.centromere[0] / this._preview.max);
+      var cent_start = draw.height * (chr.centromere[0] / this._karyotype.max);
 
       //Centromere end
-      var cent_end = draw.height * (chr.centromere[1] / this._preview.max);
+      var cent_end = draw.height * (chr.centromere[1] / this._karyotype.max);
 
       //Centromere height
       var cent_height = Math.abs(cent_end - cent_start);
@@ -125,25 +125,25 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     var text_txt = chr.name;
 
     //Get the text position x
-    var text_x = posx + this._preview.chromosome.width / 2;
+    var text_x = posx + this._karyotype.chromosome.width / 2;
 
     //Get the text position y
-    var text_y = draw.margin.top + draw.height + this._preview.text.margin;
+    var text_y = draw.margin.top + draw.height + this._karyotype.text.margin;
 
     //Get the text color
-    var text_color = this._preview.text.color;
+    var text_color = this._karyotype.text.color;
 
     //Get the text size
-    var text_size = this._preview.text.size;
+    //var text_size = this._karyotype.text.size;
 
     //Get the text font
-    var text_font = this._preview.text.font;
+    var text_font = this._karyotype.text.font;
 
     //Get the text align
-    var text_align = this._preview.text.align;
+    var text_align = this._karyotype.text.align;
 
     //Draw the chromosome title
-    canvas.Text({ x: text_x, y: text_y, text: text_txt, color: text_color, size: text_size, font: text_font, align: text_align });
+    canvas.Text({ x: text_x, y: text_y, text: text_txt, color: text_color, font: text_font, align: text_align });
 
     //Get the regions for this chromosome
     var regions = (typeof this._regions.list[chr.name] === 'undefined') ? [] : this._regions.list[chr.name];
@@ -155,13 +155,13 @@ jviz.modules.ideogram.prototype.previewDraw = function()
       var re = regions[j];
 
       //Region start
-      var re_start = draw.height * (re.start / this._preview.max);
+      var re_start = draw.height * (re.start / this._karyotype.max);
 
       //Region end
-      var re_end = draw.height * (re.end / this._preview.max);
+      var re_end = draw.height * (re.end / this._karyotype.max);
 
       //Region width
-      var re_width = this._preview.chromosome.width;
+      var re_width = this._karyotype.chromosome.width;
 
       //Region height
       var re_height = Math.max(Math.abs(re_end - re_start), 1);
@@ -183,7 +183,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     if(marks === 0){ continue; }
 
     //Get the mark rectangle position x
-    var mark_x = posx + this._preview.width / 2 - this._marks.karyotypes.width / 2;
+    var mark_x = posx + this._karyotype.width / 2 - this._marks.karyotypes.width / 2;
 
     //Get the mark rectange position y
     var mark_y = posy - this._marks.karyotypes.margin;
@@ -204,7 +204,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     canvas.Fill({ color: this._marks.fill });
 
     //Update the text position x
-    this._marks.text.x = posx + this._preview.chromosome.width / 2;
+    this._marks.text.x = posx + this._karyotype.chromosome.width / 2;
 
     //Update the text position y
     this._marks.text.y = mark_y + this._marks.karyotypes.text;
@@ -216,7 +216,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
     canvas.Text(this._marks.text);
 
     //Update the mark position x
-    mark_x = posx + this._preview.width / 2;
+    mark_x = posx + this._karyotype.width / 2;
 
     //Update the mark position y
     mark_y = mark_y + this._marks.karyotypes.height - this._marks.karyotypes.triangle;
@@ -241,7 +241,7 @@ jviz.modules.ideogram.prototype.previewDraw = function()
   }
 
   //Reset the karyotypes hover
-  this._preview.hover.index = -1;
+  this._karyotype.hover.index = -1;
 
   //Set loading as false
   this.loading(false);
@@ -251,16 +251,16 @@ jviz.modules.ideogram.prototype.previewDraw = function()
 };
 
 //Get the chromosome
-jviz.modules.ideogram.prototype.previewFindChromosome = function(x, y)
+jviz.modules.ideogram.prototype.karyotypeFindChromosome = function(x, y)
 {
   //Get the actual draw
   var draw = this._canvas.draw();
 
   //Check for click on the margin left
-  if(x < draw.margin.left + 0 * this._preview.margin){ return -1; }
+  if(x < draw.margin.left + 0 * this._karyotype.margin){ return -1; }
 
   //Check for click on the margin right
-  if(draw.margin.left + draw.width - 0 * this._preview.margin < x){return -1; }
+  if(draw.margin.left + draw.width - 0 * this._karyotype.margin < x){return -1; }
 
   //Check for click on the margin top
   if(y < draw.margin.top){ return -1; }
@@ -269,10 +269,10 @@ jviz.modules.ideogram.prototype.previewFindChromosome = function(x, y)
   if(draw.margin.top + draw.height < y){ return -1; }
 
   //Read all the chromosomes positions
-  for(var i = 0; i < this._preview.positions.length; i++)
+  for(var i = 0; i < this._karyotype.positions.length; i++)
   {
     //Get the position
-    var pos = this._preview.positions[i];
+    var pos = this._karyotype.positions[i];
 
     //Check the left position x
     if(x < pos.x){ return -1; }
@@ -289,10 +289,10 @@ jviz.modules.ideogram.prototype.previewFindChromosome = function(x, y)
 };
 
 //Clicked on a chromosome
-jviz.modules.ideogram.prototype.previewClick = function(x, y)
+jviz.modules.ideogram.prototype.karyotypeClick = function(x, y)
 {
   //Get the chromosome index
-  var index = this.previewFindChromosome(x, y);
+  var index = this.karyotypeFindChromosome(x, y);
 
   //Check for undefined chromosome
   if(index === -1){ return; }
@@ -311,16 +311,16 @@ jviz.modules.ideogram.prototype.previewClick = function(x, y)
 };
 
 //Draw the karyotypes hover
-jviz.modules.ideogram.prototype.previewMove = function(x, y)
+jviz.modules.ideogram.prototype.karyotypeMove = function(x, y)
 {
   //Get the hover chromosome
-  var index = this.previewFindChromosome(x, y);
+  var index = this.karyotypeFindChromosome(x, y);
 
   //Check the index
-  if(index === this._preview.hover.index){ return; }
+  if(index === this._karyotype.hover.index){ return; }
 
   //Update the index
-  this._preview.hover.index = index;
+  this._karyotype.hover.index = index;
 
   //Get the canvas
   var canvas = this._canvas.layer(1);
@@ -342,28 +342,28 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
   }
 
   //Get the chromosome position
-  var chr = this._preview.positions[index];
+  var chr = this._karyotype.positions[index];
 
   //Calculate the hover position x
-  var rect_x = chr.x - this._preview.hover.margin.left;
+  var rect_x = chr.x - this._karyotype.hover.margin.left;
 
   //Calculate the hover position y
-  var rect_y = chr.y - this._preview.hover.margin.top;
+  var rect_y = chr.y - this._karyotype.hover.margin.top;
 
   //Calculate the hover width
-  var rect_width = chr.width + this._preview.hover.margin.left + this._preview.hover.margin.right;
+  var rect_width = chr.width + this._karyotype.hover.margin.left + this._karyotype.hover.margin.right;
 
   //Calculate the hover height
-  var rect_height = chr.height + this._preview.hover.margin.top + this._preview.hover.margin.bottom;
+  var rect_height = chr.height + this._karyotype.hover.margin.top + this._karyotype.hover.margin.bottom;
 
   //Get the hover radius
-  var rect_radius = this._preview.hover.radius;
+  var rect_radius = this._karyotype.hover.radius;
 
   //Draw
   canvas.Rect({ x: rect_x, y: rect_y, width: rect_width, height: rect_height, radius: rect_radius });
 
   //Set the fill color
-  canvas.Fill({ color: this._preview.hover.color, opacity: this._preview.hover.opacity });
+  canvas.Fill({ color: this._karyotype.hover.color, opacity: this._karyotype.hover.opacity });
 
   //Get the chromosome name
   var chr_name = this._genome.chromosomes[index].name;
@@ -379,10 +379,10 @@ jviz.modules.ideogram.prototype.previewMove = function(x, y)
 };
 
 //Preview mouse leave
-jviz.modules.ideogram.prototype.previewLeave = function()
+jviz.modules.ideogram.prototype.karyotypeLeave = function()
 {
   //Update the index
-  this._preview.hover.index = -1;
+  this._karyotype.hover.index = -1;
 
   //Clear the canvas layer
   this._canvas.layer(1).Clear();
