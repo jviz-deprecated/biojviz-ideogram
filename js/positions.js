@@ -2,11 +2,10 @@
 jviz.modules.ideogram.prototype.positionDraw = function(x, y)
 {
   //Get the second layer
-  var canvas = this._canvas.layer(this._chromosome.position.layer);
+  var canvas = this._canvas.el.layer(this._chromosome.position.layer);
 
   //Clear
-  //canvas.Clear({ x: 0, y: 0, width: this._width, height: this._chromosome.utils.posy_end });
-  canvas.Clear();
+  this.chromosomeClearLayer(this._chromosome.position.layer);
 
   //Rectangle position x
   var rect_x = x - this._chromosome.position.width/2;
