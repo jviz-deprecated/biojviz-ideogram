@@ -5,7 +5,7 @@ jviz.modules.ideogram.prototype.foot = function(text)
   if(typeof text === 'undefined'){ var text = ' '; }
 
   //Set the foot content
-  this._panel.footContent(text);
+  this._panel.el.footContent(text);
 };
 
 //Get chromosomes
