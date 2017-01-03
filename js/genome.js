@@ -54,7 +54,7 @@ jviz.modules.ideogram.prototype.genome = function(data)
   });
 
   //Update the ideogram detail
-  this._panel.el.detail(this._genome.name + ' ' + this._genome.assembly);
+  this._panel.el.detail(this._genome.name);
 
   //Draw the data
   this.draw();
