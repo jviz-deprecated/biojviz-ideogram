@@ -5,7 +5,7 @@ jviz.modules.ideogram.prototype.loading = function(value)
   if(typeof value !== 'boolean'){ return this._loading; }
 
   //Check the value
-  (value === true) ? this._panel.showLoading() : this._panel.hideLoading();
+  (value === true) ? this._panel.el.showLoading() : this._panel.el.hideLoading();
 
   //Save the value
   this._loading = value;
