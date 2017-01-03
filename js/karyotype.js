@@ -231,11 +231,11 @@ jviz.modules.ideogram.prototype.karyotypeDraw = function()
   this.loading(false);
 
   //Add the foot info
-  this.foot(this._foot.default);
+  //this.foot(this._foot.default);
 };
 
 //Get the chromosome
-jviz.modules.ideogram.prototype.karyotypeFindChromosome = function(x, y)
+jviz.modules.ideogram.prototype.karyotypeOver = function(x, y)
 {
   //Get the actual draw
   var draw = this._karyotype.draw;
@@ -272,11 +272,11 @@ jviz.modules.ideogram.prototype.karyotypeFindChromosome = function(x, y)
   return -1;
 };
 
-//Clicked on a chromosome
-jviz.modules.ideogram.prototype.karyotypeClick = function(x, y)
+//Clicked down on a chromosome
+jviz.modules.ideogram.prototype.karyotypeDown = function(x, y)
 {
   //Get the chromosome index
-  var index = this.karyotypeFindChromosome(x, y);
+  var index = this.karyotypeOver(x, y);
 
   //Check for undefined chromosome
   if(index === -1){ return; }
@@ -298,7 +298,7 @@ jviz.modules.ideogram.prototype.karyotypeClick = function(x, y)
 jviz.modules.ideogram.prototype.karyotypeMove = function(x, y)
 {
   //Get the hover chromosome
-  var index = this.karyotypeFindChromosome(x, y);
+  var index = this.karyotypeOver(x, y);
 
   //Check the index
   if(index === this._karyotype.hover.index){ return; }
