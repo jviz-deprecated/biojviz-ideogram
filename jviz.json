@@ -12,7 +12,7 @@
   {
     "build:js":
     [
-      { "name": "src", "args": [ "./js/ideogram.js", "./js/**.js" ] },
+      { "name": "src", "args": [ "./js/ideogram.js", "./js/**/*.js" ] },
       { "name": "concat", "args": "ideogram.js" },
       { "name": "dest", "args": "./" }
     ],
