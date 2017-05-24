@@ -1,0 +1,45 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import components -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jviz/jviz.html">
+<link rel="import" href="../jviz-styles/jviz-styles.html">
+<link rel="import" href="../jviz-panel/jviz-panel.html">
+
+<!-- Import biojviz -->
+<link rel="import" href="../biojviz/biojviz.html">
+<link rel="import" href="../biojviz-karyoviewer/biojviz-karyoviewer.html">
+
+<!-- Ideogram element -->
+<dom-module id="biojviz-ideogram">
+  <template>
+    <jviz-panel id="panel" header$="{{ header }}" detail$="{{ detail }}">
+      <biojviz-karyoviewer id="karyo_up" width="100%" height="130px"></biojviz-karyoviewer>
+      <biojviz-karyoviewer id="kryo_down" width="100%" height="100px"></biojviz-karyoviewer>
+    </jviz-panel>
+  </template>
+</dom-module>
+
+<!-- Ideogram logic -->
+<script>
+  //Initialize the ideogram object
+  var biojviz_ideogram = { is: 'biojviz-ideogram' };
+
+  //Initialize the properties
+  biojviz_ideogram.properties = {};
+  biojviz_ideogram.properties.header = { type: String, reflectToAttribute: true, value: 'Ideogram' };
+  biojviz_ideogram.properties.detail = { type: String, reflectToAttribute: true, value: '' };
+
+  //Attached event
+  biojviz_ideogram.attached = function()
+  {
+
+  };
+
+  //Register the ideogram element
+  Polymer(biojviz_ideogram);
+</script>
