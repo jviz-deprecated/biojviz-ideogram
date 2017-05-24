@@ -18,8 +18,10 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 <dom-module id="biojviz-ideogram">
   <template>
     <jviz-panel id="panel" header$="{{ header }}" detail$="{{ detail }}">
-      <biojviz-karyoviewer id="karyo_up" width="100%" height="130px"></biojviz-karyoviewer>
-      <biojviz-karyoviewer id="kryo_down" width="100%" height="100px"></biojviz-karyoviewer>
+      <jviz-panel-body>
+        <biojviz-karyoviewer id="karyo_up" width="100%" height="130px"></biojviz-karyoviewer>
+        <biojviz-karyoviewer id="kryo_down" width="100%" height="100px"></biojviz-karyoviewer>
+      </jviz-panel-body>
     </jviz-panel>
   </template>
 </dom-module>
