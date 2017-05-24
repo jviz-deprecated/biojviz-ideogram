@@ -1,0 +1,17 @@
+{
+  "name": "biojviz-ideogram",
+  "description": "Biojviz ideogram element",
+  "ignore": [ "**/.*", "node_modules", "bower_components", "build" ],
+  "dependencies":
+  {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "jviz": "jviz/jviz#dev",
+    "jviz-styles": "jviz/jviz-styles#dev",
+    "jviz-panel": "jviz/jviz-panel#dev",
+    "biojviz": "jviz/biojviz#dev",
+    "biojviz-karyoviewer": "jviz/biojviz-karyoviewer#dev"
+  },
+  "license": "MIT",
+  "authors": [ "Josemi Juanes <josemijuanes@gmail.com>" ],
+  "keywords": [ "biojviz", "biojviz-components", "viewer", "karyotype", "bioinformatics" ]
+}
