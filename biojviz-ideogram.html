@@ -34,12 +34,12 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   biojviz_ideogram.properties = {};
   biojviz_ideogram.properties.header = { type: String, reflectToAttribute: true, value: 'Ideogram' };
   biojviz_ideogram.properties.detail = { type: String, reflectToAttribute: true, value: '' };
-  biojviz_ideogram.properties.chromosomes = { type: Array, value: [], observer: '_update_chromosomes' };
+  biojviz_ideogram.properties.chromosomes = { type: Array, value: [] };
   biojviz_ideogram.properties.features = { type: Array, value: [] };
   biojviz_ideogram.properties.selectedChromosome = { type: Number, value: -1 };
 
   //Observers
-  //biojviz_ideogram.observers = [ 'reload(chromosomes, features)' ];
+  biojviz_ideogram.observers = [ 'reload(chromosomes, features)' ];
 
   //Attached event
   biojviz_ideogram.attached = function()
@@ -47,15 +47,13 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     //Save this
     var self = this;
 
-    console.log('IDEOGRAM READY');
-
+    //Reload the ideogram
     this.reload();
   };
 
   //Reload the ideogram
   biojviz_ideogram.reload = function()
   {
-    console.log('Reload');
     //Save the chromosomes
     this.$.karyo_up.chromosomes = this.chromosomes;
 
@@ -83,12 +81,6 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 
     //Reset the selected chromosome
     this.selectedChromosome = -1;
-  };
-
-  //Update the chromosomes list
-  biojviz_ideogram._update_chromosomes = function(value)
-  {
-    console.log('New chromosomes ---> ' + value.length);
   };
 
   //Register the ideogram element
